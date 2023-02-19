@@ -1,8 +1,8 @@
 package com.sugil.board.dto.member;
 
 import jakarta.validation.constraints.Pattern;
+import lombok.Builder;
 import lombok.Getter;
-import org.hibernate.validator.constraints.Length;
 
 @Getter
 public class SignupRequestDTO {
@@ -13,4 +13,11 @@ public class SignupRequestDTO {
     private String password;
     @Pattern(regexp = "^[가-힣]{2,4}$")
     private String name;
+
+    @Builder
+    public SignupRequestDTO(String id, String password, String name) {
+        this.id = id;
+        this.password = password;
+        this.name = name;
+    }
 }

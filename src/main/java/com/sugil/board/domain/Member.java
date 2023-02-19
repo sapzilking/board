@@ -6,10 +6,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import static lombok.AccessLevel.PROTECTED;
 
+@Getter
 @NoArgsConstructor(access = PROTECTED)
 @Entity
 public class Member {
@@ -25,7 +27,8 @@ public class Member {
     String name;
 
     @Builder
-    public Member(String id, String password, String name) {
+    public Member(long sno, String id, String password, String name) {
+        this.sno = sno;
         this.id = id;
         this.password = password;
         this.name = name;
